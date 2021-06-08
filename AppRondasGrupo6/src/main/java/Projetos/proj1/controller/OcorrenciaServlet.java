@@ -12,8 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Projetos.proj1.domain.Ocorrencia;
+import Projetos.proj1.domain.Pessoa;
 import Projetos.proj1.domain.Ronda;
 import Projetos.proj1.jpa.JpaUtil;
+import Projetos.proj1.uteis.Upload;
+import net.iamvegan.multipartrequest.HttpServletMultipartRequest;
 
 @WebServlet("/Privada/Ocorrencia/OcorrenciaServlet")
 public class OcorrenciaServlet extends HttpServlet {
@@ -24,6 +27,15 @@ public class OcorrenciaServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	
+    	request = new HttpServletMultipartRequest(
+    			request,
+    			HttpServletMultipartRequest.MAX_CONTENT_LENGTH,
+    			HttpServletMultipartRequest.SAVE_TO_TMPDIR,
+    			HttpServletMultipartRequest.IGNORE_ON_MAX_LENGTH,
+    			HttpServletMultipartRequest.DEFAULT_ENCODING);
+
+    	
 		if (request.getParameter("gravar") != null) {
 			gravar(request, response);
 		} else if (request.getParameter("incluir") != null) {
@@ -34,11 +46,43 @@ public class OcorrenciaServlet extends HttpServlet {
 			excluir(request, response);
 		} else if (request.getParameter("cancelar") != null) {
 			cancelar(request, response);
+		} else if (request.getParameter("alterarFoto") != null) {
+			alterarFoto(request, response);
+		} else if (request.getParameter("gravarFoto") != null) {
+			gravarFoto(request, response);
 		} else { // default = consultar
 			listar(request, response);
 		}
 	}
+    
+    private void gravarFoto(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	
+		EntityManager em = JpaUtil.getEntityManager();
+		em.getTransaction().begin();
+		Ocorrencia o = em.find(Ocorrencia.class, Integer.parseInt(request.getParameter("id")));
+		//colocar a foto na pasta uploads
+		if (request.getParameter("foto") != null) {
+			String nomeArquivo = "Foto"+o.getId()+".jpg";
+			// pegar o caminho de contexto de execução da aplicação para a pasta uploads
+			String caminho = getServletConfig().getServletContext().getRealPath("/") + "Privada/uploads";
+			// copiar arquivo de upload para a pasta
+			Upload.copiarArquivo((HttpServletMultipartRequest) request, "foto", caminho, nomeArquivo);
+			}
+		
+		em.merge(o);
+		em.getTransaction().commit();
+		em.close();
+		listar(request, response);
+	}
 
+    private void alterarFoto(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Integer id = Integer.parseInt(request.getParameter("alterarFoto"));
+		EntityManager em = JpaUtil.getEntityManager();
+		Ocorrencia o = em.find(Ocorrencia.class, id); 
+		em.close();
+		request.setAttribute("o", o); //repassamos o obj para o form inicializar os dados
+		request.getRequestDispatcher("OcorrenciaFoto.jsp").forward(request, response);
+	}
 	
 	private void excluir(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Integer id = Integer.parseInt(request.getParameter("excluir"));

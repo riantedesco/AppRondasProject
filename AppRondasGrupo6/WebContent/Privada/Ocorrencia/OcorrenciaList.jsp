@@ -38,7 +38,7 @@
 			      <td>${o.descricao}</td>
 			      <td>${o.latitude}</td>
 			      <td>${o.longitude}</td>
-			      <td>${o.foto}</td>
+			      <td><button name="alterarFoto" value="${o.id}">Foto</button></td>
 			      <td>${o.ronda.id} / ${o.ronda.locomocao.descricao} / <fmt:formatDate value= "${o.ronda.dataHoraInicio}" pattern="dd/MM/yyyy HH:mm"/></td>
 			      <td><button name="alterar" value="${o.id}">Alterar</button></td>
 			      <td><button name="excluir" value="${o.id}">Excluir</button></td>
