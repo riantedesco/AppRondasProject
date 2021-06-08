@@ -160,7 +160,6 @@ public class OcorrenciaServlet extends HttpServlet {
 				request.getParameter("descricao"),
 				Float.parseFloat(request.getParameter("latitude")),
 				Float.parseFloat(request.getParameter("longitude")),
-				request.getParameter("foto"),
 				ronda);
 		return o;
 	}

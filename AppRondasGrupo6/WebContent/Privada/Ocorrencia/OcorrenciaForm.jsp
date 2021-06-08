@@ -59,13 +59,6 @@
 			</div>
 			
 			<div class="row">
-				<div class="col-md-5">
-					<label for="foto">Foto:</label> 
-					<input type="text" name="foto" id="foto" value="${o.foto}" class="form-control" placeholder="Anexe aqui uma foto:">
-				</div>
-			</div>
-			
-			<div class="row">
 				<div class="col-md-3">
 					<label for="ronda">Ronda:</label><br>
 					<select name="ronda" id="ronda">
@@ -75,7 +68,7 @@
 					</select>
 				</div>
 			</div>
-			<br>
+			<br><br>
 			<button type= "submit" name="gravar"><i class="fas fa-save"></i> Gravar</button>
 			<button type= "submit" name="cancelar"><i class="fas fa-undo"></i> Cancelar</button>
 		</fieldset>

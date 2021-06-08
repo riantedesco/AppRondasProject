@@ -14,7 +14,7 @@
 
 	<form action="OcorrenciaServlet" method="post" enctype="multipart/form-data">
 		<fieldset>
-			<legend>Fotos da Ocorrencia:</legend>
+			<legend>Foto da Ocorrencia:</legend>
 
 			<div class="row">
 				<div class="col-md-1">
@@ -27,15 +27,15 @@
 				<div class="col-md-3">
 					<label>Selecione a foto:</label> 
 					
-					<input type="file" id="foto" name="foto" /><br>
+					<input type="file" id="foto" name="foto"/><br>
 					<div id="areaImagem">
 						<img name="imagem" id="imagem" width="200" height="200"
-							src="../uploads/Foto${o.foto}.jpg" />
+							src="../uploads/Foto${o.id}.jpg" />
 					</div>
 
 				</div>
 			</div>
-			
+			<br><br>
 			<button type="submit" name="gravarFoto">
 				<i class="fas fa-save"></i> Gravar
 			</button>

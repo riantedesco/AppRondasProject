@@ -70,7 +70,7 @@
 					</select>
 				</div>
 			</div>
-			<br>
+			<br><br>
 			<button type= "submit" name="gravar"><i class="fas fa-save"></i> Gravar</button>
 			<button type= "submit" name="cancelar"><i class="fas fa-undo"></i> Cancelar</button>
 		</fieldset>

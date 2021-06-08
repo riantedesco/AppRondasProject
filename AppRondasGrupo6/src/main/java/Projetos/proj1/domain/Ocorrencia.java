@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
@@ -36,7 +37,6 @@ public class Ocorrencia implements Serializable {
 	
 	@Column(nullable = false)
 	private Float longitude;
-	private String foto;
 	
 	@ManyToOne(optional = false)
 	private Ronda ronda;
@@ -54,7 +54,7 @@ public class Ocorrencia implements Serializable {
 		super();
 		this.id = id;
 	}
-	public Ocorrencia(Integer id, Date dataHora, String titulo, String descricao, Float latitude, Float longitude, String foto, Ronda ronda) {
+	public Ocorrencia(Integer id, Date dataHora, String titulo, String descricao, Float latitude, Float longitude, Ronda ronda) {
 		super();
 		this.id = id;
 		this.dataHora = dataHora;
@@ -62,7 +62,6 @@ public class Ocorrencia implements Serializable {
 		this.descricao = descricao;
 		this.latitude = latitude;
 		this.longitude = longitude;
-		this.foto = foto;
 		this.ronda = ronda;
 	}
 	
@@ -115,14 +114,6 @@ public class Ocorrencia implements Serializable {
 	}
 	
 
-	public String getFoto() {
-		return foto;
-	}
-	public void setFoto(String foto) {
-		this.foto = foto;
-	}
-
-	
 	public Ronda getRonda() {
 		return ronda;
 	}
