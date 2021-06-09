@@ -88,6 +88,7 @@ public class PessoaServlet extends HttpServlet {
 		em.getTransaction().commit();
 		List <Pessoa> listaPessoa = em.createQuery("from Pessoa").getResultList();
 		em.close();
+		request.setAttribute("listaPessoa", listaPessoa);
 		request.getRequestDispatcher("PessoaList.jsp").forward(request, response);
 	}
 

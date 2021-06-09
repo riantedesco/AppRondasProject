@@ -24,7 +24,7 @@
 			      <td>Longitude da Última Ronda</td>
 			      <td>Data e Hora da Última Ronda</td>
 			      <td>Locomocão</td>
-			      <td></td>
+			      <td>Vigilantes</td>
 			      <td></td>
 			      <td></td>	      
 		      </tr>
@@ -39,7 +39,7 @@
 			      <td>${r.lonUltima}</td>
 			      <td><fmt:formatDate value= "${r.dataHoraUltima}" pattern="dd/MM/yyyy HH:mm"/></td>
 			      <td>${r.locomocao.id} / ${r.locomocao.descricao} / ${r.locomocao.placa}</td>
-			      <td></td>
+			      <td><button name="vigilantes" value="${r.id}">Vigilantes</button></td>
 			      <td><button name="alterar" value="${r.id}">Alterar</button></td>
 			      <td><button name="excluir" value="${r.id}">Excluir</button></td>
 			   </tr>

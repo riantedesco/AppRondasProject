@@ -33,7 +33,7 @@ public class Ronda implements Serializable {
 	@ManyToOne(optional = false)
 	private Locomocao locomocao;
 	
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Pessoa> vigilantes;
 	
 	
