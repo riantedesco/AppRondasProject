@@ -117,9 +117,9 @@ FROM ocorrencia
 				<text><![CDATA[Relatório Policial]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="SubTitle" x="271" y="62" width="196" height="22" uuid="cf7082ea-5e9a-4c8e-9c8d-1ae5139152cd"/>
+				<reportElement style="Detail" x="271" y="62" width="196" height="22" forecolor="#736343" uuid="cf7082ea-5e9a-4c8e-9c8d-1ae5139152cd"/>
 				<textElement>
-					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+					<font fontName="Times New Roman" size="18" pdfFontName="Times-Roman"/>
 				</textElement>
 				<text><![CDATA[Projeto de Monitoramento]]></text>
 			</staticText>

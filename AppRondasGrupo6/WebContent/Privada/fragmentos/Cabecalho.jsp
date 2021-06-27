@@ -42,7 +42,13 @@
 				</ul>
 			</li>
 			
-			<li><a href="#">Relatórios</a></li>
+			<li><a href="#">Relatórios</a>
+			<ul>
+					<li><a href="../Relatorios/RelOcorrenciaServlet" target="_blank">Ocorrencia</a></li>
+					<li><a href="../Relatorios/RelPessoaServlet" target="_blank">Pessoa</a></li>
+					<li><a href="../Relatorios/RelRondaServlet" target="_blank">Ronda</a></li>
+				</ul>
+			</li>
 			
 			<li><a href="#">Sobre</a>
 				<ul class="mega-menu">
@@ -53,6 +59,9 @@
 					</li>
 				</ul>
 			</li>
+			
+			
+			
 			
 			<li><a href="../UsuarioLogoutServlet">Sair</a></li>
 		</ul>
